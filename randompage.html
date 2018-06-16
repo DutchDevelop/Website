@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name = "Viewport" content="width=device-width, initial-scale=1">
+  <title> DutchDeveloper. </title>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="js/odometer.js"></script>
+  <link href="css/pages.css" rel = "stylesheet" type="text/css">
+  <link href="css/socialbuttons.css" rel = "stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/odometer-theme.css" />
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
+  <script src="js/jquery.easypiechart.js"></script>
+<body>
+<header class="dheader">
+  <div class="container dcontrainer">
+    <img src="img/logo.png" alt="DutchDeveloper logo" class = "logo">
+    <nav>
+      <ul>
+        <li><a href="./index.html">Home</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<section class="home-hero">
+  <div class="hud">
+    <h1 id = "gametitle" class="gametitle">LOADING TITLE</h1>
+    <img src="img/notloadedgameicon.png" id="gameimage" class = "gameimage">
+    <div class="chart" data-percent="0">
+        <h1 class="charttext" id="charttext">LOADING CHART.</h1>
+    </div>
+  </div>
+  <div class="container">
+    <section class="gameabout">
+      <div class="gameabouttextbox">
+        <h1 id="gamedesc">LOADING DESCRIPTION</h1>
+        <p>Real Time Visits</p>
+        <div class="odometer" id = "odometer">nul<div>
+      </div>
+    </section>
+  </div>
+</section>
+<footer>
+  <ul class="socialIcons">
+    <li class="youtube"><a href="https://www.youtube.com/c/pascalvanderveendutchdeveloper?sub_confirmation=1"><i class="fa fa-fw fa-youtube-play"></i>Youtube</a></li>
+    <li class="twitter twitter-follow-button" data-show-count="false"><a href="https://twitter.com/DutchDevelop?ref_src=twsrc%5Etfw"><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><i class="fa fa-fw fa-twitter"></i>Twitter</a></li>
+    <li class="instagram"><a href=""><i class="fa fa-fw fa-instagram"></i>Instagram</a></li>
+  </ul>
+</footer>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('.chart').easyPieChart({
+        size: 225,
+        lineWidth: 10,
+        scaleColor: false,
+        lineCap: "round",
+        barColor: "#4ce84e",
+        trackColor: "#2b2b2b", //#e84c4c
+        easing: "easeOutBack",
+      });
+      var placeid = 707652019
+      var Proxy = "https://cors-anywhere.herokuapp.com/";
+      var Address = "https://roblox.com/places/api-get-details?assetId=";
+      function getData() {
+          return fetch(Proxy + Address + placeid, {
+              method: 'GET'
+          }).then(function(response) {
+              return response.json().then(function(data) {
+                  return data;
+              })
+          }).catch(function(err) {
+              return err;
+          });
+      }
+      function update() {
+        getData().then(function(data) {
+          $('#odometer').html(data.OnlineCount);
+          document.getElementById("gametitle").innerHTML = data.Name;
+          document.getElementById("gamedesc").innerHTML = data.Description;
+          document.getElementById("gameimage").src = "http://www.roblox.com/Thumbs/Asset.ashx?Width=420&Height=420&AssetID="+placeid;
+          var votemath = (data.TotalUpVotes/(data.TotalUpVotes + data.TotalDownVotes))*100;
+          document.getElementById("charttext").innerHTML = "Rating: " + Math.floor(votemath) + "%";
+          $('.chart').data('easyPieChart').update(votemath);
+          $('.chart').data('easyPieChart').disableAnimation();
+          $('.chart').data('easyPieChart').enableAnimation();
+        });
+      };
+      update();
+      setInterval(update,2500);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+/* Social
+----------------------------------------------*/
+
+ul.socialIcons {
+  padding: 0;
+  text-align: center;
+  box-sizing: content-box;
+}
+
+.socialIcons li {
+  background-color: yellow;
+  list-style: none;
+  display: inline-block;
+  margin: 6px;
+  border-radius: 2em;
+  overflow: hidden;
+  box-sizing: content-box;
+}
+
+.socialIcons li a {
+  display: block;
+  box-sizing: content-box;
+  padding: .5em;
+  min-width: 1.28571429em;
+  max-width: 1.28571429em;
+  height: 1.28571429em;
+  white-space: nowrap;
+  line-height: 1.5em; /*it's working only when you write text with icon*/
+  transition: all ease-in-out 500ms;
+  text-decoration: none;
+  font-family: arial;
+  color: #fff;
+}
+
+.socialIcons li i {
+  margin-right: 0.5em;
+}
+
+.socialIcons li:hover a {
+  max-width: 700px;
+  padding-right: 1em;
+}
+
+.socialIcons .youtube {
+  background-color: #bf3c2d;
+  box-shadow: 0 0 16px #bf3c2d;
+}
+
+.socialIcons .twitter {
+  background-color: #00aced;
+  box-shadow: 0 0 16px #00aced;
+}
+
+.socialIcons .instagram {
+  background-color: #cd486b;
+  box-shadow: 0 0 16px #cd486b;
+}

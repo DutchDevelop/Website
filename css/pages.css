@@ -1,0 +1,278 @@
+@import
+url('https://fonts.googleapis.com/css?family=Raleway:300,400,700,900');
+
+*{
+  box-sizing: border-box;
+  transition: all ease-in-out 250ms;
+}
+
+body {
+margin: 0;
+font-family: "Raleway" ,sans-serif ;
+text-align: center;
+
+}
+
+.dheader{
+  background: #FFF;
+  margin: 0;
+  padding: 1em 0;
+
+}
+
+.container {
+  width: 95%;
+  max-width: 70em;
+  margin: 0 auto;
+}
+.dcontrainer {
+  max-width: 99vw;
+}
+
+/* typography
+----------------------------------------------*/
+
+h1{
+  font-weight: 300;
+  font-size: 2.5rem;
+  margin-top: 0;
+}
+
+.title{
+  font-size: 2.5rem;
+  margin-bottom: .3em;
+  font-weight: 900;
+}
+
+
+@media (min-width: 60rem) {
+  p{
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+  .title{
+    font-size: 3.7rem;
+  }
+}
+
+
+/* buttons
+----------------------------------------------*/
+
+.button{
+  display: inline-block;
+  font-size: 1.2rem;
+  text-decoration: none;;
+  text-transform: uppercase;
+  border-width: 2px;
+  border-style: solid;
+  padding: .5em 1.75em;
+  position: relative;
+}
+
+@media (min-width: 60rem) {
+  .button{
+    font-size: 1.5rem;
+  }
+}
+
+.button-small {
+  font-size: .6rem;
+  font-weight: 700;
+}
+
+.button-accent {
+  color: #00ff6c;
+  border-color: #00ff6c;
+  z-index: 5;
+}
+
+.button-light {
+  color: #FFF;
+  border-color: #FFF;
+}
+
+.button-dark {
+  color: #000000;
+  border-color: #000000;
+}
+
+.button-dark:hover,
+.button-dark:focus{
+  background-color: #232323;
+  color: #00ff6c;
+}
+
+
+
+.button-accent:hover,
+.button-accent:focus{
+  background-color: #00ff6c;
+  color: #232323;
+}
+input[type = "button-accent"]:focus{
+  background-color: #00ff6c;
+  color: #232323;
+}
+
+.background {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+
+/* header
+----------------------------------------------*/
+
+header {
+  position:  absolute;
+  left: 0;
+  right: 0;
+  margin: 1em;
+
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.clearfix::after,
+section::after,
+footer::after{
+  content: "";
+  display: block;
+  clear: both;
+
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li{
+  display: inline-block;
+  margin: 1em;
+}
+nav a {
+  font-weight: 900;
+  text-decoration: none;
+  text-transform: uppercase;;
+  font-size: .8rem;
+  padding: .5em;
+  color: #bfbdb9;
+}
+
+nav a:hover,
+nav a:focus{
+  color: #DDD;
+}
+
+@media (min-width: 60rem){
+  .logo{
+    float: left;
+  }
+  nav{
+    float: right;
+  }
+}
+
+/* home-hero
+----------------------------------------------*/
+.home-hero{
+  background-image: url(../img/hero-bg.jpg);
+  background-size: cover;
+  background-position: center;
+  padding: 10em 0;
+  color: #FFF;
+}
+
+.hud{
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 0;
+  top: -5em;
+}
+.hud h1{
+  font-size: 2.5rem;
+  font-weight: 900;
+}
+
+.gametitle{
+  position: relative;
+  margin: 0 auto;
+  top: 3em;
+  z-index: 2;
+}
+.gameimage{
+ width: 640px;
+ height: 640px;
+ position: relative;
+ left: -15%;
+ margin: 0 auto;
+}
+
+.chart {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 70%;
+  color: #FFF;
+  text-decoration: none;
+  text-align: center;
+}
+
+.chart h1{
+  position: relative;
+  font-weight: 500;
+  font-size: 1.5rem;
+  top: 17.5rem;
+  margin-top: 0;
+}
+
+.gameabouttextbox{
+  background-color: #232323;
+  padding: 3em;
+  width: 50vw;
+  margin-top: 0
+  color: #FFF;
+  position: relative;
+  left: 50%;
+  top: -10rem;
+  transform: translateX(-50%);
+}
+
+.gameabout h1{
+  font-size: 1.5vw;
+  background-color: #232323;
+}
+.gameabout p{
+  position: relative;
+  font-size: 2rem;
+  padding: 0;
+  top: 0rem;
+}
+
+.odometer{
+  font-size: 100px;
+  top: -3rem;
+  padding: 0;
+  margin: 0;
+}
+
+
+
+/* Footer
+----------------------------------------------*/
+footer {
+  background: #232323;
+  color: #fff;
+  text-align: left;
+  padding: 1.5em 0;
+  top: -5%
+}
