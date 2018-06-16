@@ -217,7 +217,7 @@ nav a:focus{
   }
 }
 
-home-about-textbox{
+.home-about-textbox{
   background-color: #232323;
   padding: 4em;
   width: 100vw;
@@ -276,6 +276,7 @@ home-about-textbox{
    padding: 0 .6em;
  }
 }
+
 
 /* Portfolio
 ----------------------------------------------*/
