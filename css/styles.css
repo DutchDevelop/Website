@@ -217,10 +217,10 @@ nav a:focus{
   }
 }
 
-.home-about-textbox{
+home-about-textbox{
   background-color: #232323;
-  padding: 3em;
-  width: 50vw;
+  padding: 4em;
+  width: 100vw;
   margin-left: -2.5%;
   outline: 2px solid #00ff6c;
   outline-offset: -3em;

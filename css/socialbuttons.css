@@ -52,6 +52,11 @@ ul.socialIcons {
 }
 
 .socialIcons .instagram {
-  background-color: #cd486b;
-  box-shadow: 0 0 16px #cd486b;
+  background-color: #486bcd;
+  box-shadow: 0 0 16px #486bcd;
+}
+
+.socialIcons .discord {
+  background-color: #00aced;
+  box-shadow: 0 0 16px #00aced;
 }
