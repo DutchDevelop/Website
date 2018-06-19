@@ -5,7 +5,7 @@
   <meta name = "Viewport" content="width=device-width, initial-scale=1">
   <title> DutchDeveloper. </title>
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script src="scripts/odometer.js"></script>
+  <script src="scriptsodometer.js"></script>
   <link href="css/pages.css" rel = "stylesheet" type="text/css">
   <link href="css/socialbuttons.css" rel = "stylesheet" type="text/css">
   <link rel="stylesheet" href="css/odometer-theme.css" />
@@ -22,7 +22,28 @@
         trackColor: "#2b2b2b", //#e84c4c
         easing: "easeOutBack",
       });
-      var placeid = 1868133955
+
+      function parseURLParams(url) {
+        var queryStart = url.indexOf("?") + 1,
+            queryEnd   = url.indexOf("#") + 1 || url.length + 1,
+            query = url.slice(queryStart, queryEnd - 1),
+            pairs = query.replace(/\+/g, " ").split("&"),
+            parms = {}, i, n, v, nv;
+
+        if (query === url || query === "") return;
+
+        for (i = 0; i < pairs.length; i++) {
+            nv = pairs[i].split("=", 2);
+            n = decodeURIComponent(nv[0]);
+            v = decodeURIComponent(nv[1]);
+
+            if (!parms.hasOwnProperty(n)) parms[n] = [];
+            parms[n].push(nv.length === 2 ? v : null);
+        }
+        return parms;
+      };
+      var x = parseURLParams(window.location.href);
+      var placeid = x.id;
       var Proxy = "https://cors-anywhere.herokuapp.com/";
       var Address = "https://roblox.com/places/api-get-details?assetId=";
       function getData() {
@@ -35,7 +56,14 @@
           }).catch(function(err) {
               return err;
           });
-      }
+      };
+      document.getElementById("gametitle").onclick = function(){
+         var t = window.prompt("Enter a ROBLOX place id", placeid)
+         null != t && "" != t && (home = !1,
+          entry = !1,
+          placeid = t)
+      };
+      update();
       function update() {
         getData().then(function(data) {
           $('#odometer').html(data.OnlineCount);
@@ -49,8 +77,7 @@
           $('.chart').data('easyPieChart').enableAnimation();
         });
       };
-      update();
-      setInterval(update,6000);
+      setInterval(update,2500);
     });
   </script>
 <body>
